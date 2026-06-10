@@ -1,17 +1,16 @@
 ---
-
+import Base from '../layouts/Base.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base>
+  <main style="padding: 4rem 2rem;">
+    <h1>Parker <span class="accent">Abrantes</span></h1>
+    <p style="margin-top: 1.5rem; color: var(--dim);">Design system check — fonts, palette, and layout.</p>
+    <hr />
+    <p>Body text in Lora. Warm off-white on midnight blue.</p>
+    <p style="margin-top: 1rem;"><code>JetBrains Mono for code and terminal text.</code></p>
+    <p style="margin-top: 1rem;" class="accent">Gold accent color.</p>
+    <p style="margin-top: 1rem;" class="dim">Dim secondary text.</p>
+    <p style="margin-top: 1rem;" class="label">Label / tag style — uppercase tracked mono</p>
+  </main>
+</Base>

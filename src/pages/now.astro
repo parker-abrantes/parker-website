@@ -16,38 +16,58 @@ import Base from '../layouts/Base.astro';
       <section class="now-section">
         <h2>Building</h2>
         <ul>
-          <li>SmartSignals MCAP visualization pipeline — pairwise distance analysis and VRU closest-approach detection next.</li>
-          <li>nuclear-pf — open-source SMR project finance modeling framework. ANS Winter 2026 abstract submitted with Liam Barney.</li>
-          <li>This website.</li>
-          <li>ANS Student Chapter at Florida Tech — charter and founding infrastructure.</li>
+          <li>
+            <strong>nuclear-pf</strong> — investigating whether SMRs can remain competitive with solar on the question of financing structure, not technology cost. Writing a paper on it with Liam Barney. ANS Winter 2026 abstract submitted. The argument: the same reactor, at the same cost, can be financially viable or impossible depending entirely on the instruments around it.
+          </li>
+          <li>
+            <strong>SmartSignals</strong> — MCAP sensor data pipeline for urban traffic validation. Currently building pairwise distance analysis and closest-approach detection for vulnerable road users (cyclists, pedestrians) in the Aerospace Systems Lab under Dr. Nguyen.
+          </li>
+          <li>
+            <strong>This website.</strong>
+          </li>
         </ul>
       </section>
 
       <section class="now-section">
-        <h2>Learning</h2>
+        <h2>Studying</h2>
         <ul>
-          <li>ROS Noetic, Gazebo, AMCL — moving from SLAM to static-map navigation.</li>
-          <li>Foxglove Studio + MCAP — sensor data pipelines and multi-modal debugging.</li>
-          <li>Nuclear project finance — LPO structure, IRA provisions, offtake agreements.</li>
-          <li>Running — training for the Philadelphia Half Marathon.</li>
+          <li>Full-time aerospace engineering student at Florida Tech. Coursework this term includes [add your courses]. The classroom and the lab are increasingly hard to separate — which feels right.</li>
+          <li>Nuclear project finance — LPO loan structure, IRA production tax credit mechanics, offtake agreements, and why Vogtle failed where Crane/TMI succeeded.</li>
+          <li>ROS Noetic + Foxglove Studio for the SmartSignals pipeline.</li>
         </ul>
       </section>
 
       <section class="now-section">
-        <h2>Reading / Thinking About</h2>
+        <h2>Training</h2>
         <ul>
-          <li>How policy instruments change the financial viability of advanced reactor deployment.</li>
-          <li>The gap between technical possibility and real-world execution in energy infrastructure.</li>
-          <li>Attention, discipline, and what it means to do hard things over a long period of time.</li>
+          <li>Running. Half marathon in November. Building the weekly mileage slowly — trying not to wreck my knees before the race.</li>
+          <li>Fundraising for the <a href="https://fundraisers.hakuapp.com/parker-abrantes" target="_blank" rel="noopener" class="inline-link">Emily Whitehead Foundation</a> as part of it. Emily Whitehead was the first pediatric patient to receive CAR-T cell therapy and is now over a decade in remission. The run means something.</li>
+        </ul>
+      </section>
+
+      <section class="now-section">
+        <h2>Reading</h2>
+        <ul>
+          <li><em>Thinking, Fast and Slow</em> — Daniel Kahneman. The chapter on substitution questions changed how I read my own reasoning.</li>
+          <li><em>Atomic Habits</em> — James Clear. Less about the system, more about using it as a mirror for what I'm actually building toward.</li>
+        </ul>
+      </section>
+
+      <section class="now-section">
+        <h2>Writing About</h2>
+        <ul>
+          <li>Theory of mind — how we model other people's inner states, and what it costs us when we get it wrong.</li>
+          <li>Life beyond and entrapped in work — what it means to be ambitious and also present.</li>
+          <li>Identity and becoming — documenting life as we build it, not after the fact.</li>
+          <li>Essays go to <a href="https://parkerabrantes.substack.com/" target="_blank" rel="noopener" class="inline-link">Ground Control on Substack</a>.</li>
         </ul>
       </section>
 
       <section class="now-section">
         <h2>Looking For</h2>
         <ul>
-          <li>Summer 2027 internships in nuclear energy, systems engineering, or technical program management.</li>
-          <li>Research collaborations in energy finance, autonomy, or edge-AI systems.</li>
-          <li>Conversations with people building things that matter.</li>
+          <li>Summer 2027 internships in nuclear energy, energy finance, systems engineering, or technical program management.</li>
+          <li>Conversations with people building things that matter — especially at the intersection of energy policy and engineering reality.</li>
         </ul>
       </section>
 
@@ -115,6 +135,12 @@ import Base from '../layouts/Base.astro';
     color: var(--accent);
     font-family: var(--font-mono);
     font-size: 0.85rem;
+  }
+
+  .inline-link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   .now-footer {

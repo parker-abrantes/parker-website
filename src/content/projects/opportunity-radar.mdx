@@ -1,0 +1,36 @@
+---
+title: "Opportunity Radar"
+summary: "Local-first career opportunity ranking dashboard for internships, research programs, scholarships, fellowships, and travel grants."
+status: "active"
+tags: ["career tools", "data systems", "node.js", "full-stack"]
+date: 2024-11-01
+tools: ["Node.js", "JavaScript", "CSV", "HTML/CSS"]
+featured: true
+nextStep: "Add scoring weight editor and email digest export"
+links:
+  - label: "Public Repo"
+    url: "https://github.com/parker-abrantes/OpportunityRadar-public"
+---
+
+## The Problem
+
+Tracking internship and fellowship applications across a dozen spreadsheets, tabs, and email threads means losing track of deadlines, duplicating research, and applying reactively instead of strategically. I wanted a single tool that ranked opportunities by fit and urgency and connected directly to my application tracker.
+
+## What I Built
+
+A zero-dependency Node.js dashboard — no Express, no React, no ORM — that serves a static UI from `public/` and exposes CSV-backed REST API routes over Node's built-in `http` module. The private version writes directly into my live internship tracker CSV; the public version ships with sample data and a `config.local.json` override.
+
+**API surface:**
+- `GET /api/radar` — ranked opportunity list
+- `GET /api/internships` — application tracker state
+- `GET /api/search-requests` + `POST` — search brief queue
+- `POST /api/radar/:id/approve` / `reject` — triage workflow
+- `POST /api/internships/:id/applied` / `close` — status transitions
+
+**Data model:** Radar entries carry `Radar_ID`, `Organization`, `Role`, `Opportunity_Type`, `Score`, `Priority`, `Status`, `Deadline`, and `Downstream_ID` linking to the internship tracker. The tracker uses `Application_ID`, `Company`, `Stage`, `Fit_Score`, `Next_Action`, and `Outcome`.
+
+**Key functions:** `parseCsv`, `stringifyCsv`, `readCsv`, `writeCsv`, `nextApplicationId`, `mapRadarToInternship`, `ensureSearchRequestStore`, `buildSearchBrief`.
+
+## What I Learned
+
+Building without a framework forces clarity about what a server actually does. Every route is explicit, every data transform is visible, and the entire system is auditable as plain text files. It also taught me how much complexity "zero dependencies" still involves when you care about edge cases — CSV quoting, collision-safe IDs, atomic writes.

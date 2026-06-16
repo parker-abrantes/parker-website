@@ -1,0 +1,41 @@
+---
+title: "FlowState"
+summary: "Biomedical engineering simulator for bladder emptying and uroflowmetry curves — no backend, physics-accurate, built in the browser."
+status: "active"
+tags: ["biomedical", "simulation", "react", "physics"]
+date: 2025-02-01
+tools: ["Next.js 15", "React 19", "TypeScript", "Recharts", "Tailwind"]
+featured: true
+nextStep: "Add clinical data overlay for validation against real uroflow traces"
+links: []
+---
+
+## The Problem
+
+Uroflowmetry — measuring how urine flows during voiding — is one of the primary diagnostic tests for lower urinary tract dysfunction. The physics of bladder emptying involves coupled fluid mechanics, pressure decay, and pipe-flow dynamics that most clinical tools treat as a black box. I wanted to build a transparent, interactive simulator that makes these mechanics visible and manipulable.
+
+## What I Built
+
+A fully client-side Next.js simulator with a custom physics engine. No backend, no database — all computation runs in the browser.
+
+**Physics engine** (`src/lib/physics/uroflow.ts`):
+- `bladderPressureAtVolume` — elastic pressure decay: P(t) = P₀ × (V/V₀)^1.15
+- `effectiveAreaM2` — outlet cross-section from urethra diameter parameter
+- `reynoldsNumber` + `darcyFrictionFactor` — Blasius friction for smooth-pipe turbulent flow
+- `velocityFromPressure` — Bernoulli velocity with optional Darcy-Weisbach viscous loss
+- `simulateUroflow` — explicit Euler integration: dV/dt = −Q at 10ms time steps
+- `flowAtPressureDiameterMlS` — point-query for pressure-diameter envelope map
+
+**UI features:**
+- Interactive parameter sliders (initial volume, detrusor pressure, urethral diameter, obstruction)
+- Scenario presets for normal voiding, benign prostatic hyperplasia, stricture
+- Recharts time-series: flow rate, bladder volume, detrusor pressure
+- Qmax, average flow, voiding time, and post-void residual metrics
+- Pressure-diameter performance envelope — a 2D map of the parameter space
+- Source/caveat matrix documenting physiological assumptions
+
+**Build:** Static export, first-load JS ~217 kB. Physics test suite passes.
+
+## What I Learned
+
+Biomedical simulation demands that you be honest about what you're modeling and what you're not. Every assumption in the physics engine has a clinical implication. Writing the source/caveat matrix wasn't an afterthought — it was the point. A simulator without explicit assumptions is just a chart with confidence it doesn't deserve.

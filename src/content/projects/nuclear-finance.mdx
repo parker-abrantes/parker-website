@@ -4,7 +4,7 @@ summary: "Open-source Python framework for small modular reactor project finance
 status: active
 tags: ["Python", "nuclear energy", "project finance", "LCOE", "DSCR", "IRR", "SMR", "policy"]
 date: 2026-05-01
-tools: ["Python", "pandas", "NumPy"]
+tools: ["Python", "dataclasses", "argparse", "unittest"]
 nextStep: "Interactive DSCR and discount-rate sensitivity dashboard. ANS Winter 2026 conference submission."
 links:
   - label: "GitHub"
@@ -22,25 +22,35 @@ Under the right combination of policy instruments, SMR LCOE can achieve parity w
 
 ## What I Built
 
-An open-source Python framework (`nuclear-pf`) that computes LCOE, DSCR, and equity IRR across configurable financing structures:
+A pure-Python package (`nuclear-pf`) — no external dependencies — that computes LCOE, DSCR, and equity IRR across configurable financing structures:
 
 - DOE Loan Programs Office guarantee scenarios
 - Merchant financing
 - Regulated utility rate base
 - Hybrid structures with IRA production tax credit toggles
 
-The framework includes real-project presets anchored to three case studies representing distinct financing architectures and outcomes:
+**Core algorithms:** Discounted cash-flow LCOE, amortizing debt-service formula, bisection IRR solver, eight-condition policy grid, Lazard 2025 solar benchmark projections with explicit annual cost-decline assumptions.
+
+**Real-project presets:**
 
 | Project | Architecture | Outcome |
 |---------|-------------|---------|
 | Vogtle Units 3 & 4 | Regulated utility rate base, no LPO guarantee | 8 years late, $20B+ over budget |
-| NuScale / TVA CFPP | Merchant + PPA, no LPO guarantee | Cancelled 2023 |
-| Constellation-Microsoft PPA (TMI restart) | Merchant + long-term corporate PPA | Closed — the working model |
+| NuScale / UAMPS | Merchant + PPA, no LPO guarantee | Cancelled 2023 |
+| Crane/TMI — Microsoft PPA | Merchant + long-term corporate PPA | Closed — the working model |
+| Oklo Aurora | Microreactor, utility PPA | In development |
+
+**Results from 24 passing unit tests:**
+- NuScale LCOE: **279.69 $/MWh**, DSCR 0.82x
+- Crane/TMI LCOE: **30.79 $/MWh**, DSCR 9.64x
+- Oklo Aurora LCOE: **77.43 $/MWh**, DSCR 3.04x
 
 ## What I Learned
 
 The same reactor at the same cost can be financially viable or financially impossible depending entirely on the financing structure around it. Policy is not a subsidy — it is load-bearing infrastructure for deployment.
 
+Writing a bisection IRR solver from scratch also made clear why Excel's `IRR()` sometimes returns errors: the NPV curve isn't always monotonic.
+
 ## Current Status
 
-Active development. Co-building with Liam Barney. ANS Student Chapter at Florida Tech is the network engine; `nuclear-pf` is the product. Conference abstract submitted for ANS Winter 2026.
+Active development. Co-building with Liam Barney. ANS Student Chapter at Florida Tech is the network engine. Conference abstract submitted for ANS Winter 2026.

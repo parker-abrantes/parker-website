@@ -1,0 +1,37 @@
+---
+title: "Life OS Tools"
+summary: "A suite of personal automation scripts — file sorting, resume generation, and scholarship packet assembly — built to run my own operating system."
+status: "active"
+tags: ["automation", "python", "personal systems", "productivity"]
+date: 2024-08-01
+tools: ["Python", "ReportLab", "python-docx", "pathlib", "argparse"]
+featured: false
+nextStep: "Unify CLI interface and add dry-run mode to resume builder"
+links: []
+---
+
+## The Problem
+
+Managing a job search, scholarship applications, and a file system that spans school, projects, and personal work produces real entropy. I built a set of tools to automate the repetitive parts so I could focus on the work that actually requires thought.
+
+## What I Built
+
+**File Sorter** (`life_os_file_sorter.py`): A CLI tool that scans a source directory, classifies files against keyword rules, previews proposed moves with confidence levels, and executes or undoes them with a CSV audit log.
+
+- Duplicate detection by name+size or SHA-256 content hash
+- Source aliases (`downloads`, `career`) for common scan roots
+- Skip rules for installers and temp files
+- Per-file approval prompt with alternate destination selection
+- `undo_last_batch` reads the move log and reverses in order
+
+**Resume Builder** (`build_resumes.py`): Maps Markdown resume source files into styled PDF flowables using ReportLab. Outputs multiple targeted variants — TPM, Systems Engineering, Project Operations, Research, and company-specific (Tesla, Zipline, DOE, Argonne) — and copies each into the matching application folder.
+
+- `inline_md` — inline bold/italic parsing for PDF text runs
+- `role_line` — consistent role/company/date header formatting
+- `build_pdf` — top-level orchestration with section routing
+
+**Scholarship + Recommender Packet Builder**: Python-docx scripts that extract named Markdown sections (essays, drafts) and write formatted Word documents with metadata, word counts, and Calibri styling — ready to hand to recommenders or submit directly.
+
+## What I Learned
+
+The value of personal automation isn't speed — it's consistency. A file sorter that runs every week means I never spend a Sunday cleaning up Downloads. A resume builder that takes a Markdown file and outputs a PDF means I'm not reformatting in Word at midnight before a deadline. The tool becomes infrastructure.

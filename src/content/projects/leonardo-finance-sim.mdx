@@ -5,7 +5,7 @@ status: prototype
 tags: ["Python", "FastAPI", "React", "SQLite", "Recharts", "EVM", "DCAA", "FAR", "defense finance"]
 date: 2025-12-01
 tools: ["Python", "FastAPI", "React", "SQLite", "Recharts"]
-nextStep: "Polish README, add screenshots, write portfolio case study."
+nextStep: "Wire FastAPI/SQLite backend to replace in-memory DB; add screenshots and written case study."
 links:
   - label: "GitHub"
     url: "https://github.com/parker-abrantes"
@@ -23,15 +23,18 @@ A full-stack web application that models:
 - **Contract types** — Cost Plus Fixed Fee, Firm Fixed Price, Time & Materials
 - **Earned value metrics** — CPI, SPI, EAC, VAC, TCPI
 - **Burn rate visualization** — budget vs. actuals over time via Recharts
+- **Cost-element variance** — delta and percentage by line item
 - **DCAA audit trail awareness** — documentation-first cost tracking
-- **CSV export** — for external analysis
+- **SQL query panel** — generates copyable finance queries mirroring how a program analyst would pull data
 
-Backend: Python + FastAPI + SQLite. Frontend: React + Recharts.
+**Key components:** `SqlPanel`, `ProgramCard`, `VarianceTable`, `BurnChart`, `SummaryTable`
+
+Backend: Python + FastAPI + SQLite. Frontend: React 18 + Recharts + Vite.
 
 ## What I Learned
 
-Earned value management is deceptively simple on paper and surprisingly subtle in practice. The gap between planned value and earned value can look identical in two projects with completely different root causes — one is ahead of schedule, one is burning budget on rework.
+Earned value management is deceptively simple on paper and surprisingly subtle in practice. The gap between planned value and earned value can look identical in two projects with completely different root causes — one is ahead of schedule, one is burning budget on rework. Building a tool that makes those cases distinguishable required understanding what the numbers actually mean.
 
 ## Current Status
 
-Working prototype. Core finance engine is functional. Next step is a polished README, screenshots, and a written case study explaining the design decisions.
+Working prototype. Core finance engine functional with in-memory simulated database. Backend scaffolded for FastAPI/SQLite; next step is wiring real persistence and a polished case study.

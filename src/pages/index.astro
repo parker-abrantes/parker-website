@@ -1,9 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import TerminalHook from '../components/TerminalHook.astro';
+import PhotoScatter from '../components/PhotoScatter.astro';
 ---
 
 <Base>
+  <PhotoScatter />
   <TerminalHook />
 
   <!-- Hero -->
@@ -27,35 +29,30 @@ import TerminalHook from '../components/TerminalHook.astro';
   <!-- Section Cards -->
   <section class="cards-section">
     <div class="cards-grid">
-
       <a href="/work#research" class="card">
         <span class="card-label label">Research</span>
         <h3>Edge-AI &amp; Robotics</h3>
         <p>Traffic validation datasets, VRU safety, Foxglove visualization, and sensor pipelines in the Aerospace Systems Lab.</p>
         <span class="card-arrow">→</span>
       </a>
-
       <a href="/work#energy" class="card">
         <span class="card-label label">Energy Systems</span>
         <h3>Nuclear Finance &amp; Deployment</h3>
         <p>Why advanced reactors struggle under private financing — discount rates, DSCR, construction timelines, and what it takes to make them real.</p>
         <span class="card-arrow">→</span>
       </a>
-
       <a href="/writing" class="card">
         <span class="card-label label">Writing</span>
         <h3>Ground Control</h3>
         <p>Essays on ambition, labor, discipline, loneliness, and building a life while still becoming a person.</p>
         <span class="card-arrow">→</span>
       </a>
-
       <a href="/projects" class="card">
         <span class="card-label label">Projects &amp; Tools</span>
         <h3>Systems I've Built</h3>
         <p>Dashboards, finance models, full-stack tools, and research pipelines — proof of motion, not perfection.</p>
         <span class="card-arrow">→</span>
       </a>
-
     </div>
   </section>
 
@@ -88,13 +85,14 @@ import TerminalHook from '../components/TerminalHook.astro';
 </Base>
 
 <style>
-  /* Hero */
   .hero {
     min-height: 92vh;
     display: flex;
     align-items: center;
     padding: 6rem 2rem 4rem;
     border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
   }
 
   .hero-inner {
@@ -103,14 +101,8 @@ import TerminalHook from '../components/TerminalHook.astro';
     width: 100%;
   }
 
-  .hero h1 {
-    margin-bottom: 1.75rem;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
+  .hero h1 { margin-bottom: 1.75rem; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
 
   .tagline {
     font-size: 1.1rem;
@@ -142,7 +134,6 @@ import TerminalHook from '../components/TerminalHook.astro';
     opacity: 1;
   }
 
-  /* Cards */
   .cards-section {
     padding: 5rem 2rem;
     max-width: 1100px;
@@ -172,16 +163,8 @@ import TerminalHook from '../components/TerminalHook.astro';
     opacity: 1;
   }
 
-  .card h3 {
-    font-size: 1.3rem;
-    margin: 0.5rem 0 0.75rem;
-  }
-
-  .card p {
-    font-size: 0.95rem;
-    color: var(--dim);
-    line-height: 1.7;
-  }
+  .card h3 { font-size: 1.3rem; margin: 0.5rem 0 0.75rem; }
+  .card p  { font-size: 0.95rem; color: var(--dim); line-height: 1.7; }
 
   .card-arrow {
     display: block;
@@ -192,11 +175,8 @@ import TerminalHook from '../components/TerminalHook.astro';
     transition: transform 0.15s;
   }
 
-  .card:hover .card-arrow {
-    transform: translateX(4px);
-  }
+  .card:hover .card-arrow { transform: translateX(4px); }
 
-  /* Status strip */
   .status-strip {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
@@ -205,8 +185,6 @@ import TerminalHook from '../components/TerminalHook.astro';
     align-items: baseline;
     flex-wrap: wrap;
     gap: 0.5rem;
-    max-width: 100%;
-    overflow: hidden;
   }
 
   .status-items {
@@ -216,16 +194,13 @@ import TerminalHook from '../components/TerminalHook.astro';
     letter-spacing: 0.03em;
   }
 
-  /* Proof */
   .proof-section {
     max-width: 780px;
     margin: 0 auto;
     padding: 5rem 2rem 6rem;
   }
 
-  .proof-section h2 {
-    margin-bottom: 2rem;
-  }
+  .proof-section h2 { margin-bottom: 2rem; }
 
   .proof-list {
     list-style: none;

@@ -51,9 +51,9 @@ import Base from '../layouts/Base.astro';
       </p>
 
       <p>
-        While all of this is happening, I work 25–30 hours a week as a Starbucks shift supervisor — promoted
-        May 2026, supervising teams of up to 10, serving 300–400 customers per shift. It is not separate
-        from the engineering. It is the same discipline applied to a different system under real pressure.
+        While all of this is happening, I work 25–30 hours a week as a Starbucks barista — serving
+        hundreds of customers a shift, keeping a team moving, staying present when things get chaotic.
+        It is not separate from the engineering. It is the same discipline applied to a different system under real pressure.
       </p>
 
       <p>
@@ -68,6 +68,17 @@ import Base from '../layouts/Base.astro';
         before results appear — is where everything is actually decided.
       </p>
     </section>
+
+    <div class="about-photos">
+      <figure class="about-photo young">
+        <img src="/photos/young-parker.jpg" alt="Parker, younger, on the subway" />
+        <figcaption>Providence era.</figcaption>
+      </figure>
+      <figure class="about-photo current">
+        <img src="/photos/river-portrait.jpg" alt="Parker by the river" />
+        <figcaption>Melbourne, FL.</figcaption>
+      </figure>
+    </div>
 
     <section class="principles">
       <h2>Operating Principles</h2>
@@ -176,6 +187,51 @@ import Base from '../layouts/Base.astro';
     font-style: normal;
     font-family: var(--font-mono);
     font-size: 0.9rem;
+  }
+
+  /* Photos */
+  .about-photos {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .about-photo {
+    margin: 0;
+    background: #fff;
+    padding: 8px 8px 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    flex-shrink: 0;
+  }
+
+  .about-photo.young {
+    width: 180px;
+    transform: rotate(-2deg);
+  }
+
+  .about-photo.current {
+    width: 220px;
+    transform: rotate(1.5deg);
+    margin-top: 1.5rem;
+  }
+
+  .about-photo img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .about-photo.young img  { height: 240px; }
+
+  figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: #888;
+    margin-top: 0.5rem;
+    text-align: center;
+    letter-spacing: 0.05em;
   }
 
   .about-quick { margin-top: 1rem; }

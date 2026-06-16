@@ -1,0 +1,155 @@
+---
+---
+
+<div class="scatter-field" aria-hidden="true">
+  <div class="photo p1"><img src="/photos/flatirons.jpg"       alt="" loading="eager" /></div>
+  <div class="photo p2"><img src="/photos/cemetery-sign.jpg"  alt="" loading="eager" /></div>
+  <div class="photo p3"><img src="/photos/rockets-on-pad.jpg" alt="" loading="eager" /></div>
+  <div class="photo p4"><img src="/photos/painting.jpg"       alt="" loading="eager" /></div>
+  <div class="photo p5"><img src="/photos/latte-art.jpg"      alt="" loading="eager" /></div>
+  <div class="photo p6"><img src="/photos/rocket-prep.jpg"    alt="" loading="eager" /></div>
+  <div class="photo p7"><img src="/photos/turtles.jpg"        alt="" loading="eager" /></div>
+  <div class="photo p8"><img src="/photos/mountain.jpg"       alt="" loading="eager" /></div>
+</div>
+
+<style>
+  .scatter-field {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .photo {
+    position: absolute;
+    background: #fff;
+    padding: 8px 8px 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+    opacity: 0;
+    animation: photo-appear 0.5s ease forwards;
+  }
+
+  .photo img {
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Positions, sizes, rotations — each photo placed deliberately */
+
+  /* Flatirons landscape — top left, wide */
+  .p1 {
+    top: 4%;
+    left: -2%;
+    width: clamp(180px, 22vw, 300px);
+    transform: rotate(-4deg);
+    animation-delay: 0.2s;
+  }
+  .p1 img { width: 100%; height: clamp(100px, 12vw, 160px); }
+
+  /* Cemetery sign — top right, portrait */
+  .p2 {
+    top: 3%;
+    right: 3%;
+    width: clamp(100px, 12vw, 160px);
+    transform: rotate(5deg);
+    animation-delay: 0.4s;
+  }
+  .p2 img { width: 100%; height: clamp(130px, 16vw, 210px); }
+
+  /* Rockets on pad — bottom left */
+  .p3 {
+    bottom: 12%;
+    left: 1%;
+    width: clamp(140px, 18vw, 240px);
+    transform: rotate(3deg);
+    animation-delay: 0.6s;
+  }
+  .p3 img { width: 100%; height: clamp(90px, 11vw, 145px); }
+
+  /* Painting — bottom right, portrait */
+  .p4 {
+    bottom: 8%;
+    right: 2%;
+    width: clamp(100px, 12vw, 155px);
+    transform: rotate(-6deg);
+    animation-delay: 0.3s;
+  }
+  .p4 img { width: 100%; height: clamp(125px, 15vw, 195px); }
+
+  /* Latte art — top right area, small */
+  .p5 {
+    top: 28%;
+    right: 1%;
+    width: clamp(90px, 10vw, 130px);
+    transform: rotate(8deg);
+    animation-delay: 0.7s;
+  }
+  .p5 img { width: 100%; height: clamp(90px, 10vw, 130px); }
+
+  /* Rocket prep — left middle */
+  .p6 {
+    top: 38%;
+    left: 0%;
+    width: clamp(130px, 16vw, 210px);
+    transform: rotate(-7deg);
+    animation-delay: 0.5s;
+  }
+  .p6 img { width: 100%; height: clamp(90px, 11vw, 145px); }
+
+  /* Turtles — bottom center-left */
+  .p7 {
+    bottom: 4%;
+    left: 28%;
+    width: clamp(90px, 10vw, 130px);
+    transform: rotate(4deg);
+    animation-delay: 0.8s;
+  }
+  .p7 img { width: 100%; height: clamp(90px, 10vw, 130px); }
+
+  /* Mountain overlook — top center-right */
+  .p8 {
+    top: 6%;
+    right: 18%;
+    width: clamp(110px, 13vw, 170px);
+    transform: rotate(-3deg);
+    animation-delay: 0.35s;
+  }
+  .p8 img { width: 100%; height: clamp(130px, 16vw, 210px); }
+
+  @keyframes photo-appear {
+    from { opacity: 0; transform: scale(0.92) rotate(var(--r, 0deg)); }
+    to   { opacity: 1; }
+  }
+
+  /* Fade scatter out when terminal dismisses */
+  .scatter-field.fade-out {
+    animation: scatter-fade 1.2s ease forwards;
+    animation-delay: 0.2s;
+  }
+
+  @keyframes scatter-fade {
+    to { opacity: 0; pointer-events: none; }
+  }
+
+  /* Hide on mobile — too cluttered */
+  @media (max-width: 768px) {
+    .scatter-field { display: none; }
+  }
+</style>
+
+<script>
+  // When the terminal hook dismisses, fade the scatter out too
+  const scatter = document.querySelector('.scatter-field') as HTMLElement;
+
+  const observer = new MutationObserver(() => {
+    const hook = document.getElementById('terminal-hook');
+    if (!hook) {
+      scatter?.classList.add('fade-out');
+      setTimeout(() => scatter?.remove(), 1400);
+      observer.disconnect();
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+</script>

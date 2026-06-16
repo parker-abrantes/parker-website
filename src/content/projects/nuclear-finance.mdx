@@ -1,0 +1,46 @@
+---
+title: "nuclear-pf — SMR Project Finance Model"
+summary: "Open-source Python framework for small modular reactor project finance modeling. Built to answer why nuclear struggles under private financing and what policy conditions change the math."
+status: active
+tags: ["Python", "nuclear energy", "project finance", "LCOE", "DSCR", "IRR", "SMR", "policy"]
+date: 2026-05-01
+tools: ["Python", "pandas", "NumPy"]
+nextStep: "Interactive DSCR and discount-rate sensitivity dashboard. ANS Winter 2026 conference submission."
+links:
+  - label: "GitHub"
+    url: "https://github.com/parker-abrantes"
+featured: true
+---
+
+## Problem
+
+SMR competitiveness is frequently evaluated against utility-scale solar on a levelized cost of energy (LCOE) basis, with nuclear consistently appearing uncompetitive. This framing misdiagnoses the problem.
+
+**SMR competitiveness is not primarily a technology cost question — it is a financing structure question.**
+
+Under the right combination of policy instruments, SMR LCOE can achieve parity with or advantage over utility-scale solar, particularly in markets requiring firm, dispatchable baseload capacity. Under the wrong combination, no improvement in reactor technology or construction efficiency closes the gap. Today, every developer, fund, and policy shop models this in bespoke Excel files. No standardized, assumption-adjustable, benchmarked platform exists.
+
+## What I Built
+
+An open-source Python framework (`nuclear-pf`) that computes LCOE, DSCR, and equity IRR across configurable financing structures:
+
+- DOE Loan Programs Office guarantee scenarios
+- Merchant financing
+- Regulated utility rate base
+- Hybrid structures with IRA production tax credit toggles
+
+The framework includes real-project presets anchored to three case studies representing distinct financing architectures and outcomes:
+
+| Project | Architecture | Outcome |
+|---------|-------------|---------|
+| Vogtle Units 3 & 4 | Regulated utility rate base, no LPO guarantee | 8 years late, $20B+ over budget |
+| NuScale / TVA CFPP | Merchant + PPA, no LPO guarantee | Cancelled 2023 |
+| Constellation-Microsoft PPA (TMI restart) | Merchant + long-term corporate PPA | Closed — the working model |
+
+## What I Learned
+
+The same reactor at the same cost can be financially viable or financially impossible depending entirely on the financing structure around it. Policy is not a subsidy — it is load-bearing infrastructure for deployment.
+
+## Current Status
+
+Active development. Co-building with Liam Barney. ANS Student Chapter at Florida Tech is the network engine; `nuclear-pf` is the product. Conference abstract submitted for ANS Winter 2026.

@@ -1,0 +1,28 @@
+---
+title: "SmartSignals — Edge-AI Traffic Digital Twin"
+summary: "Research work involving traffic validation datasets, VRU safety, sensor timing, Foxglove visualization, and edge-AI infrastructure for congestion mitigation."
+status: active
+tags: ["Python", "Foxglove", "MCAP", "ROS", "traffic systems", "VRU safety", "edge AI", "data pipelines"]
+date: 2026-01-01
+tools: ["Python", "Foxglove Studio", "MCAP", "ROS Noetic", "Gazebo"]
+nextStep: "Pairwise distance analysis, closest-approach detection, camera frame alignment."
+featured: true
+---
+
+## Problem
+
+Urban traffic systems generate enormous volumes of sensor data — camera feeds, LiDAR sweeps, radar returns — but lack standardized infrastructure for validating edge-AI models against real-world conditions. Vulnerable road users (VRUs) like cyclists and pedestrians are consistently underrepresented in safety validation datasets.
+
+## What I Built
+
+Working in the Aerospace Systems and Propulsion Lab under PhD researcher Nhut Huynh and Dr. Nguyen, I built an MCAP visualization pipeline for SmartSignals Run_310 traffic validation data. The pipeline ingests raw MCAP sensor logs, parses multi-modal data streams, and renders synchronized playback in Foxglove Studio for analysis and debugging.
+
+This lets researchers visually validate sensor timing alignment, inspect VRU detection events, and identify gaps in the dataset before model training.
+
+## What I Learned
+
+Debugging across layers — sensor, topic, node, map, visualization — requires patience and a systematic approach. A system can appear functional on the surface while silently failing underneath. The work taught me to trust the data before trusting the visualization.
+
+## Current Status
+
+Active research. Visualization pipeline is functional for Run_310. Next phase: pairwise distance analysis and closest-approach detection for VRU safety metrics.

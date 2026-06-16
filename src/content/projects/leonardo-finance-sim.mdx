@@ -1,0 +1,37 @@
+---
+title: "Leonardo Finance Sim — Defense Contract Finance Tracker"
+summary: "Full-stack web application modeling defense contract types, burn rate, cost elements, earned value metrics, and audit-aware finance workflows."
+status: prototype
+tags: ["Python", "FastAPI", "React", "SQLite", "Recharts", "EVM", "DCAA", "FAR", "defense finance"]
+date: 2025-12-01
+tools: ["Python", "FastAPI", "React", "SQLite", "Recharts"]
+nextStep: "Polish README, add screenshots, write portfolio case study."
+links:
+  - label: "GitHub"
+    url: "https://github.com/parker-abrantes"
+featured: true
+---
+
+## Problem
+
+Defense contract finance involves overlapping cost accounting standards, contract types (CPFF, FFP, T&M), earned value metrics, and DCAA audit requirements. There's no lightweight tool for students or early-career engineers to explore how these systems interact.
+
+## What I Built
+
+A full-stack web application that models:
+
+- **Contract types** — Cost Plus Fixed Fee, Firm Fixed Price, Time & Materials
+- **Earned value metrics** — CPI, SPI, EAC, VAC, TCPI
+- **Burn rate visualization** — budget vs. actuals over time via Recharts
+- **DCAA audit trail awareness** — documentation-first cost tracking
+- **CSV export** — for external analysis
+
+Backend: Python + FastAPI + SQLite. Frontend: React + Recharts.
+
+## What I Learned
+
+Earned value management is deceptively simple on paper and surprisingly subtle in practice. The gap between planned value and earned value can look identical in two projects with completely different root causes — one is ahead of schedule, one is burning budget on rework.
+
+## Current Status
+
+Working prototype. Core finance engine is functional. Next step is a polished README, screenshots, and a written case study explaining the design decisions.

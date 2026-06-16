@@ -1,0 +1,195 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="About" description="Aerospace engineering student at Florida Tech. Providence, RI to Melbourne, FL.">
+  <main class="about-main">
+
+    <header class="about-header">
+      <p class="label" style="color: var(--accent); margin-bottom: 1rem;">About</p>
+      <h1>Systems, discipline,<br /><em>and the work before the work</em></h1>
+    </header>
+
+    <section class="about-body">
+      <p>
+        I grew up in Providence, Rhode Island, and graduated high school in North Attleboro, Massachusetts.
+        I came to Florida Institute of Technology in Melbourne not because it was the obvious choice, but
+        because it was serious about the work. Aerospace engineering. Real labs. Real hardware.
+      </p>
+
+      <p>
+        I did not arrive with a background in engineering or coding. I arrived curious and willing.
+        That combination has taken me further than I expected.
+      </p>
+
+      <p>
+        My path has moved through rocketry, robotics, nuclear energy, and defense finance — areas that
+        look scattered from the outside but are connected by one question: <em>how do complex ideas become real?</em>
+        How do you take something that exists only on a whiteboard, or in a model, or in someone's head,
+        and make it trustworthy enough to use in the physical world?
+      </p>
+
+      <p>
+        In Panther Rocket Lab, I helped coordinate a 25+ member multidisciplinary aerospace team through
+        an 8-month development cycle — structures, propulsion, avionics, ground systems, 30+ design reviews,
+        a ~$10,000 project budget. I also built and launched my own high-power rocket. J-class motor.
+        Blue with a gold stripe. Named Susan. Approximately 2,000 feet. Recovered after 40 minutes searching
+        through brush at the Compound in Palm Bay — the beeper gave her away.
+      </p>
+
+      <p>
+        In the Aerospace Systems and Propulsion Lab, I work with PhD researcher Nhut Huynh under Dr. Nguyen
+        on robotics and autonomy research: ROS Noetic, Gazebo, RViz, SLAM, and data pipeline work for
+        edge-AI traffic systems through SmartSignals.
+      </p>
+
+      <p>
+        Independently, I have been building <strong>nuclear-pf</strong> — an open-source Python framework
+        for SMR project finance modeling. My finding, preliminary: SMR competitiveness is not primarily a
+        technology cost question. It is a financing structure question. The same reactor, at the same cost,
+        can be financially viable or financially impossible depending entirely on what surrounds it.
+      </p>
+
+      <p>
+        While all of this is happening, I work 25–30 hours a week as a Starbucks shift supervisor — promoted
+        May 2026, supervising teams of up to 10, serving 300–400 customers per shift. It is not separate
+        from the engineering. It is the same discipline applied to a different system under real pressure.
+      </p>
+
+      <p>
+        I write because engineering without reflection can become soulless. My writing lives at
+        <a href="/writing">Ground Control</a> — essays on ambition, labor, becoming, and the systems
+        that hold a life together.
+      </p>
+
+      <p>
+        I am first-generation. I am self-supporting. I am still figuring out most of it.
+        But I have learned that the work before the work — the setup, the structure, the discipline
+        before results appear — is where everything is actually decided.
+      </p>
+    </section>
+
+    <section class="principles">
+      <h2>Operating Principles</h2>
+      <ul class="principles-list">
+        <li><em>Build before you feel ready.</em></li>
+        <li><em>Document the mess.</em></li>
+        <li><em>Translate complexity.</em></li>
+        <li><em>Respect physical systems.</em></li>
+        <li><em>Make the invisible work visible.</em></li>
+        <li><em>Discipline is not aesthetics — it is returning.</em></li>
+        <li><em>Systems become real through boring work.</em></li>
+        <li><em>The field notes matter.</em></li>
+      </ul>
+    </section>
+
+    <section class="about-quick">
+      <div class="quick-grid">
+        <div class="quick-item">
+          <span class="label">Education</span>
+          <p>B.S. Aerospace Engineering<br />Florida Institute of Technology<br />Expected May 2028 · GPA 3.3</p>
+        </div>
+        <div class="quick-item">
+          <span class="label">Research</span>
+          <p>Aerospace Systems and Propulsion Lab<br />ROS · Gazebo · Foxglove · MCAP<br />SmartSignals Edge-AI Traffic Systems</p>
+        </div>
+        <div class="quick-item">
+          <span class="label">Leadership</span>
+          <p>Panther Rocket Lab — PM + Treasurer<br />SGA Senator<br />ANS Student Chapter — Co-Founder</p>
+        </div>
+        <div class="quick-item">
+          <span class="label">Located</span>
+          <p>Melbourne, FL<br />Originally Providence, RI</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Base>
+
+<style>
+  .about-main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 8rem 2rem 6rem;
+  }
+
+  .about-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-header h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .about-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    margin-bottom: 4rem;
+  }
+
+  .about-body p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--dim);
+    max-width: 100%;
+  }
+
+  .about-body p strong { color: var(--text); }
+  .about-body p em    { color: var(--text); font-style: italic; }
+  .about-body p a     { color: var(--accent); }
+
+  .principles {
+    margin-bottom: 4rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .principles h2 { margin-bottom: 1.75rem; }
+
+  .principles-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .principles-list li {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--dim);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .principles-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+  }
+
+  .about-quick { margin-top: 1rem; }
+
+  .quick-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .quick-item p {
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--dim);
+    line-height: 1.65;
+  }
+</style>

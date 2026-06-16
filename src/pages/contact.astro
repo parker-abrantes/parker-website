@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Contact" description="Get in touch with Parker Abrantes.">
+  <main class="contact-main">
+
+    <header class="contact-header">
+      <p class="label" style="color: var(--accent); margin-bottom: 1rem;">Contact</p>
+      <h1>Get in touch</h1>
+      <p class="contact-sub">
+        Open to research collaborations, internships, technical writing,
+        student project documentation, and strange useful conversations.
+      </p>
+    </header>
+
+    <div class="contact-links">
+      <a href="mailto:parkerabrantes1@gmail.com" class="contact-item">
+        <span class="label">Email</span>
+        <span>parkerabrantes1@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/parker-abrantes-6518b1327" target="_blank" rel="noopener" class="contact-item">
+        <span class="label">LinkedIn</span>
+        <span>parker-abrantes</span>
+      </a>
+      <a href="https://github.com/parker-abrantes" target="_blank" rel="noopener" class="contact-item">
+        <span class="label">GitHub</span>
+        <span>parker-abrantes</span>
+      </a>
+      <a href="https://substack.com/@parkerabrantes" target="_blank" rel="noopener" class="contact-item">
+        <span class="label">Substack</span>
+        <span>Ground Control</span>
+      </a>
+    </div>
+
+    <div class="contact-note">
+      <p>
+        I'm a sophomore at Florida Tech. I don't have all the answers and I'm not pretending to.
+        But I show up, I do the work, and I respond to emails.
+      </p>
+    </div>
+
+  </main>
+</Base>
+
+<style>
+  .contact-main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 8rem 2rem 6rem;
+  }
+
+  .contact-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-sub {
+    margin-top: 1rem;
+    color: var(--dim);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.15s;
+  }
+
+  .contact-item:hover { color: var(--accent); opacity: 1; }
+  .contact-item:hover .label { color: var(--accent); }
+
+  .contact-item .label {
+    min-width: 80px;
+    color: var(--muted);
+    transition: color 0.15s;
+  }
+
+  .contact-item span:last-child {
+    font-size: 1rem;
+    color: inherit;
+  }
+
+  .contact-note {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .contact-note p {
+    font-size: 0.95rem;
+    color: var(--dim);
+    line-height: 1.75;
+    font-style: italic;
+  }
+</style>

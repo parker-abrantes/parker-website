@@ -5,8 +5,248 @@ import TerminalHook from '../components/TerminalHook.astro';
 
 <Base>
   <TerminalHook />
-  <main style="padding: 4rem 2rem;">
-    <h1>Parker <span class="accent">Abrantes</span></h1>
-    <p style="margin-top: 1.5rem; color: var(--dim);">Aerospace engineering student working across robotics research, energy systems, and writing.</p>
-  </main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="label" style="margin-bottom: 1.25rem;">Parker Abrantes</p>
+      <h1>Aerospace engineer.<br /><em>Writer. Builder.</em></h1>
+      <p class="tagline">
+        I'm interested in the uncomfortable middle between idea and deployment —
+        where models break, funding matters, people get tired, and systems either
+        become real or disappear.
+      </p>
+      <div class="hero-links">
+        <a href="/work">Current Work</a>
+        <a href="/writing">Read Writing</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Cards -->
+  <section class="cards-section">
+    <div class="cards-grid">
+
+      <a href="/work#research" class="card">
+        <span class="card-label label">Research</span>
+        <h3>Edge-AI &amp; Robotics</h3>
+        <p>Traffic validation datasets, VRU safety, Foxglove visualization, and sensor pipelines in the Aerospace Systems Lab.</p>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a href="/work#energy" class="card">
+        <span class="card-label label">Energy Systems</span>
+        <h3>Nuclear Finance &amp; Deployment</h3>
+        <p>Why advanced reactors struggle under private financing — discount rates, DSCR, construction timelines, and what it takes to make them real.</p>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a href="/writing" class="card">
+        <span class="card-label label">Writing</span>
+        <h3>Ground Control</h3>
+        <p>Essays on ambition, labor, discipline, loneliness, and building a life while still becoming a person.</p>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a href="/projects" class="card">
+        <span class="card-label label">Projects &amp; Tools</span>
+        <h3>Systems I've Built</h3>
+        <p>Dashboards, finance models, full-stack tools, and research pipelines — proof of motion, not perfection.</p>
+        <span class="card-arrow">→</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Currently Working On -->
+  <section class="status-strip">
+    <span class="label" style="color: var(--accent); margin-right: 1rem;">Currently working on</span>
+    <span class="status-items">
+      SmartSignals research &nbsp;·&nbsp;
+      Nuclear finance model &nbsp;·&nbsp;
+      Ground Control essays &nbsp;·&nbsp;
+      Philadelphia Half Marathon &nbsp;·&nbsp;
+      This website
+    </span>
+  </section>
+
+  <!-- Proof -->
+  <section class="proof-section">
+    <h2>Selected Work</h2>
+    <ul class="proof-list">
+      <li>Built MCAP visualization pipeline for SmartSignals Run_310 traffic validation data.</li>
+      <li>Undergraduate researcher in the Aerospace Systems Lab — ROS, Gazebo, Foxglove, data pipelines.</li>
+      <li>Project Manager, Panther Rocket Lab — 25+ members, ~$10K budget, 30+ design reviews.</li>
+      <li>NAR Level 1 high-power rocketry certification — J-class motor, ~2,000 ft apogee. Rocket named Susan.</li>
+      <li>Built a defense contract finance tracker using FastAPI, SQLite, React, and Recharts.</li>
+      <li>Independent nuclear project finance model — IDC, DSCR, LCOE, equity IRR across Vogtle, Crane, and NuScale.</li>
+      <li>Running the Philadelphia Half Marathon to raise money for the Emily Whitehead Foundation.</li>
+    </ul>
+  </section>
+
 </Base>
+
+<style>
+  /* Hero */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 2rem 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero h1 {
+    margin-bottom: 1.75rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+    color: var(--dim);
+    max-width: 60ch;
+    line-height: 1.85;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-links a {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.2rem;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .hero-links a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    opacity: 1;
+  }
+
+  /* Cards */
+  .cards-section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    color: var(--text);
+    text-decoration: none;
+    position: relative;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+
+  .card h3 {
+    font-size: 1.3rem;
+    margin: 0.5rem 0 0.75rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    color: var(--dim);
+    line-height: 1.7;
+  }
+
+  .card-arrow {
+    display: block;
+    margin-top: 1.5rem;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    transition: transform 0.15s;
+  }
+
+  .card:hover .card-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Status strip */
+  .status-strip {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.1rem 2rem;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .status-items {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--dim);
+    letter-spacing: 0.03em;
+  }
+
+  /* Proof */
+  .proof-section {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 5rem 2rem 6rem;
+  }
+
+  .proof-section h2 {
+    margin-bottom: 2rem;
+  }
+
+  .proof-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .proof-list li {
+    font-size: 1rem;
+    color: var(--dim);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.7;
+  }
+
+  .proof-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--font-mono);
+  }
+</style>

@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Now" description="What Parker is currently building, learning, and thinking about.">
+  <main class="now-main">
+
+    <header class="now-header">
+      <p class="label" style="color: var(--accent); margin-bottom: 1rem;">Now</p>
+      <h1>What I'm doing now</h1>
+      <p class="now-updated label">Updated June 2026 · Melbourne, FL</p>
+    </header>
+
+    <div class="now-body">
+
+      <section class="now-section">
+        <h2>Building</h2>
+        <ul>
+          <li>SmartSignals MCAP visualization pipeline — pairwise distance analysis and VRU closest-approach detection next.</li>
+          <li>nuclear-pf — open-source SMR project finance modeling framework. ANS Winter 2026 abstract submitted with Liam Barney.</li>
+          <li>This website.</li>
+          <li>ANS Student Chapter at Florida Tech — charter and founding infrastructure.</li>
+        </ul>
+      </section>
+
+      <section class="now-section">
+        <h2>Learning</h2>
+        <ul>
+          <li>ROS Noetic, Gazebo, AMCL — moving from SLAM to static-map navigation.</li>
+          <li>Foxglove Studio + MCAP — sensor data pipelines and multi-modal debugging.</li>
+          <li>Nuclear project finance — LPO structure, IRA provisions, offtake agreements.</li>
+          <li>Running — training for the Philadelphia Half Marathon.</li>
+        </ul>
+      </section>
+
+      <section class="now-section">
+        <h2>Reading / Thinking About</h2>
+        <ul>
+          <li>How policy instruments change the financial viability of advanced reactor deployment.</li>
+          <li>The gap between technical possibility and real-world execution in energy infrastructure.</li>
+          <li>Attention, discipline, and what it means to do hard things over a long period of time.</li>
+        </ul>
+      </section>
+
+      <section class="now-section">
+        <h2>Looking For</h2>
+        <ul>
+          <li>Summer 2027 internships in nuclear energy, systems engineering, or technical program management.</li>
+          <li>Research collaborations in energy finance, autonomy, or edge-AI systems.</li>
+          <li>Conversations with people building things that matter.</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <div class="now-footer">
+      <p class="label" style="color: var(--muted);">
+        This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener" style="color: var(--dim);">now page</a>.
+        Updated manually when things change.
+      </p>
+    </div>
+
+  </main>
+</Base>
+
+<style>
+  .now-main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 8rem 2rem 6rem;
+  }
+
+  .now-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .now-updated {
+    margin-top: 0.75rem;
+    color: var(--muted);
+  }
+
+  .now-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .now-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .now-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0;
+  }
+
+  .now-section li {
+    font-size: 1rem;
+    color: var(--dim);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.7;
+  }
+
+  .now-section li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+
+  .now-footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+</style>

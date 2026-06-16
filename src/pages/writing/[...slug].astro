@@ -1,0 +1,39 @@
+---
+import { getCollection, render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+
+export async function getStaticPaths() {
+  const essays = await getCollection('writing');
+  return essays.map(e => ({
+    params: { slug: e.id },
+    props: { essay: e },
+  }));
+}
+
+const { essay } = Astro.props;
+const { Content } = await render(essay);
+---
+
+<Article
+  title={essay.data.title}
+  summary={essay.data.summary}
+  date={essay.data.date}
+  tags={essay.data.tags}
+>
+  <Content />
+
+  {essay.data.substack_url && (
+    <div style="margin-top: 2rem; padding: 1.25rem 1.5rem; border: 1px solid var(--border); background: var(--surface);">
+      <p style="font-size: 0.9rem; color: var(--dim);">
+        This essay is part of Ground Control, published on Substack.
+        <a href={essay.data.substack_url} target="_blank" rel="noopener" style="color: var(--accent); margin-left: 0.25rem;">
+          Read the full version →
+        </a>
+      </p>
+    </div>
+  )}
+
+  <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+    <a href="/writing" class="label" style="color: var(--dim);">← All Writing</a>
+  </div>
+</Article>

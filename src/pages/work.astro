@@ -1,0 +1,260 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Work" description="Current work in motion — research, finance modeling, writing, and more.">
+  <main class="work-main">
+
+    <header class="work-header">
+      <p class="label" style="color: var(--accent); margin-bottom: 1rem;">Work in Motion</p>
+      <h1>Active Systems</h1>
+      <p class="work-sub">
+        What I am currently building, researching, and shipping.
+        Proof of motion, not perfection.
+      </p>
+    </header>
+
+    <section class="work-grid">
+
+      <div class="work-card" id="research">
+        <div class="work-card-top">
+          <span class="status-badge status-active">Active</span>
+          <span class="label">Research</span>
+        </div>
+        <h2>SmartSignals — Edge-AI Traffic Digital Twin</h2>
+        <p>
+          Research work in the Aerospace Systems and Propulsion Lab involving traffic
+          validation datasets, VRU safety, sensor timing, and Foxglove visualization
+          for edge-AI congestion mitigation infrastructure.
+        </p>
+        <div class="work-tags">
+          {['Python', 'Foxglove', 'MCAP', 'ROS', 'VRU Safety', 'Edge AI'].map(t => (
+            <span class="tag">{t}</span>
+          ))}
+        </div>
+        <div class="work-next">
+          <span class="label">Next step</span>
+          <p>Pairwise distance analysis, closest-approach detection, camera frame alignment.</p>
+        </div>
+        <a href="/projects/smartsignals" class="work-link">View project →</a>
+      </div>
+
+      <div class="work-card" id="energy">
+        <div class="work-card-top">
+          <span class="status-badge status-active">Active</span>
+          <span class="label">Energy Systems</span>
+        </div>
+        <h2>nuclear-pf — SMR Project Finance Model</h2>
+        <p>
+          Open-source Python framework for small modular reactor project finance modeling.
+          Built to answer why nuclear struggles under private financing and what
+          policy conditions change the math. Co-built with Liam Barney.
+        </p>
+        <div class="work-tags">
+          {['Python', 'Nuclear Energy', 'LCOE', 'DSCR', 'IRR', 'Policy'].map(t => (
+            <span class="tag">{t}</span>
+          ))}
+        </div>
+        <div class="work-next">
+          <span class="label">Next step</span>
+          <p>Interactive DSCR and discount-rate sensitivity dashboard. ANS Winter 2026 abstract submitted.</p>
+        </div>
+        <a href="/projects/nuclear-finance" class="work-link">View project →</a>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-top">
+          <span class="status-badge status-prototype">Prototype</span>
+          <span class="label">Defense Finance</span>
+        </div>
+        <h2>Leonardo Finance Sim — Defense Contract Tracker</h2>
+        <p>
+          Full-stack web application modeling contract types, burn rate, cost elements,
+          CPI/EAC/VAC, and DCAA audit-aware finance workflows for defense programs.
+        </p>
+        <div class="work-tags">
+          {['FastAPI', 'React', 'SQLite', 'EVM', 'DCAA', 'FAR'].map(t => (
+            <span class="tag">{t}</span>
+          ))}
+        </div>
+        <div class="work-next">
+          <span class="label">Next step</span>
+          <p>Polish README, add screenshots, write portfolio case study.</p>
+        </div>
+        <a href="/projects/leonardo-finance-sim" class="work-link">View project →</a>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-top">
+          <span class="status-badge status-active">Active</span>
+          <span class="label">Writing</span>
+        </div>
+        <h2>Ground Control</h2>
+        <p>
+          Essays on ambition, labor, engineering, philosophy, loneliness, discipline,
+          and building a life while still becoming a person. Published on Substack.
+        </p>
+        <div class="work-tags">
+          {['Essays', 'Substack', 'Practical Philosophy', 'Creative Nonfiction'].map(t => (
+            <span class="tag">{t}</span>
+          ))}
+        </div>
+        <div class="work-next">
+          <span class="label">Next step</span>
+          <p>Publish next essay. Build out full writing archive here.</p>
+        </div>
+        <a href="/writing" class="work-link">Read writing →</a>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-top">
+          <span class="status-badge status-active">Active</span>
+          <span class="label">Fundraiser</span>
+        </div>
+        <h2>Philadelphia Half Marathon — Emily Whitehead Foundation</h2>
+        <p>
+          Running the Philadelphia Half Marathon to raise money for pediatric cancer
+          research and CAR T-cell therapy awareness. Emily Whitehead was the first
+          pediatric patient treated with CAR T-cell therapy.
+        </p>
+        <div class="work-tags">
+          {['Running', 'Fundraising', 'Pediatric Cancer', 'CAR T-cell'].map(t => (
+            <span class="tag">{t}</span>
+          ))}
+        </div>
+        <div class="work-next">
+          <span class="label">Next step</span>
+          <p>Training updates and fundraiser link coming soon.</p>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-top">
+          <span class="status-badge status-active">Active</span>
+          <span class="label">Leadership</span>
+        </div>
+        <h2>ANS Student Chapter — Florida Tech</h2>
+        <p>
+          Co-founding the American Nuclear Society student section at Florida Institute
+          of Technology. The chapter serves as the network engine for nuclear energy
+          work on campus — connecting students to industry, research, and policy.
+        </p>
+        <div class="work-tags">
+          {['Nuclear Energy', 'Student Leadership', 'ANS', 'Community'].map(t => (
+            <span class="tag">{t}</span>
+          ))}
+        </div>
+        <div class="work-next">
+          <span class="label">Next step</span>
+          <p>Chapter charter submission and membership drive.</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+</Base>
+
+<style>
+  .work-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8rem 2rem 6rem;
+  }
+
+  .work-header {
+    max-width: 640px;
+    margin-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .work-sub {
+    margin-top: 1rem;
+    color: var(--dim);
+    font-size: 1rem;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .work-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .work-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .work-card h2 {
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .work-card > p {
+    font-size: 0.95rem;
+    color: var(--dim);
+    line-height: 1.7;
+  }
+
+  .work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 0.15rem 0.45rem;
+  }
+
+  .work-next {
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+    margin-top: auto;
+  }
+
+  .work-next p {
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: var(--dim);
+  }
+
+  .work-link {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 0.25rem;
+    transition: opacity 0.15s;
+  }
+
+  .work-link:hover { opacity: 0.7; }
+
+  .status-badge {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .status-active    { color: var(--accent); border: 1px solid var(--accent); }
+  .status-prototype { color: #5eb8b8;       border: 1px solid #5eb8b8; }
+  .status-research  { color: var(--mono);   border: 1px solid var(--mono); }
+</style>

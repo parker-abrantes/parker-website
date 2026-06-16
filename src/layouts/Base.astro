@@ -1,14 +1,18 @@
 ---
 import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  hideNav?: boolean;
 }
 
 const {
   title = 'Parker Abrantes',
   description = 'Aerospace engineering student working across robotics research, energy systems, and writing.',
+  hideNav = false,
 } = Astro.props;
 ---
 
@@ -20,11 +24,13 @@ const {
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" href="/favicon.ico" />
-    <title>{title === 'Parker Abrantes' ? title : `${title} — Parker Abrantes`}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>{title === 'Parker Abrantes' ? title : `${title} — Parker Abrantes`}</title>
   </head>
   <body>
+    {!hideNav && <Nav />}
     <slot />
+    <Footer />
   </body>
 </html>

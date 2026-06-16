@@ -1,0 +1,186 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const essays = (await getCollection('writing')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const featured = essays.filter(e => e.data.featured);
+const rest = essays.filter(e => !e.data.featured);
+---
+
+<Base title="Writing" description="Ground Control — essays on ambition, labor, discipline, and becoming.">
+  <main class="writing-main">
+
+    <header class="writing-header">
+      <p class="label" style="color: var(--accent); margin-bottom: 1rem;">Writing</p>
+      <h1>Ground Control</h1>
+      <p class="writing-sub">
+        Essays on ambition, labor, engineering, and building a life while still becoming a person.
+        My writing is where the technical world and the emotional world are allowed to touch.
+      </p>
+      <a href="https://substack.com/@parkerabrantes" target="_blank" rel="noopener" class="substack-link">
+        Read on Substack →
+      </a>
+    </header>
+
+    {featured.length > 0 && (
+      <section class="featured-essays">
+        <h2 class="section-label label">Featured Essays</h2>
+        <div class="essay-list">
+          {featured.map(e => (
+            <a href={`/writing/${e.slug}`} class="essay-card featured">
+              <div class="essay-meta">
+                <span class="label">
+                  {e.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+                </span>
+              </div>
+              <h2>{e.data.title}</h2>
+              <p>{e.data.summary}</p>
+              <div class="essay-tags">
+                {e.data.tags.map(t => <span class="tag">{t}</span>)}
+              </div>
+              <span class="essay-arrow">Read →</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {rest.length > 0 && (
+      <section class="all-essays">
+        <h2 class="section-label label">All Writing</h2>
+        <div class="essay-list">
+          {rest.map(e => (
+            <a href={`/writing/${e.slug}`} class="essay-card">
+              <div class="essay-meta">
+                <span class="label">
+                  {e.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+                </span>
+              </div>
+              <h3>{e.data.title}</h3>
+              <p>{e.data.summary}</p>
+              <span class="essay-arrow">Read →</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="themes">
+      <h2 class="section-label label">Themes I Return To</h2>
+      <div class="themes-list">
+        {['discipline', 'labor', 'loneliness', 'becoming', 'infrastructure', 'systems',
+          'faith in effort without proof', 'engineering as a human practice', 'attention'].map(t => (
+          <span class="theme-tag">{t}</span>
+        ))}
+      </div>
+    </section>
+
+  </main>
+</Base>
+
+<style>
+  .writing-main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 8rem 2rem 6rem;
+  }
+
+  .writing-header {
+    margin-bottom: 4rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .writing-sub {
+    margin-top: 1rem;
+    color: var(--dim);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .substack-link {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .substack-link:hover { opacity: 0.7; }
+
+  .section-label {
+    display: block;
+    margin-bottom: 1.5rem;
+    color: var(--dim);
+  }
+
+  .featured-essays, .all-essays, .themes {
+    margin-bottom: 4rem;
+  }
+
+  .essay-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .essay-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s;
+  }
+
+  .essay-card:hover { border-color: var(--accent); opacity: 1; }
+  .essay-card.featured { background: var(--surface); }
+
+  .essay-card h2 { font-size: 1.4rem; }
+  .essay-card h3 { font-size: 1.1rem; }
+  .essay-card p  { font-size: 0.95rem; color: var(--dim); line-height: 1.7; }
+
+  .essay-meta { margin-bottom: 0.25rem; }
+
+  .essay-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.25rem; }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 0.15rem 0.4rem;
+  }
+
+  .essay-arrow {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    margin-top: 0.25rem;
+    letter-spacing: 0.04em;
+  }
+
+  .themes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .theme-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--dim);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.75rem;
+  }
+</style>

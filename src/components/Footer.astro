@@ -1,4 +1,5 @@
 ---
+import { links, socials } from '../config/links';
 ---
 
 <footer>
@@ -8,10 +9,10 @@
       <p>Aerospace engineer. Writer. Builder.<br />Melbourne, FL — originally Providence, RI.</p>
     </div>
     <div class="footer-links">
-      <a href="https://www.linkedin.com/in/parker-abrantes-6518b1327" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/parker-abrantes" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://substack.com/@parkerabrantes" target="_blank" rel="noopener">Substack</a>
-      <a href="mailto:parkerabrantes1@gmail.com">Email</a>
+      {socials.map(s => (
+        <a href={s.url} target="_blank" rel="noopener">{s.label}</a>
+      ))}
+      <a href={`mailto:${links.email}`}>Email</a>
     </div>
   </div>
   <div class="footer-bottom">

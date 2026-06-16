@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { links } from '../config/links';
 ---
 
 <Base title="Work" description="Current work in motion — research, finance modeling, writing, and more.">
@@ -124,7 +125,11 @@ import Base from '../layouts/Base.astro';
         </div>
         <div class="work-next">
           <span class="label">Next step</span>
-          <p>Training updates and fundraiser link coming soon.</p>
+          <p>Training log coming. Donations open now.</p>
+        </div>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href={links.fundraiser.donate} target="_blank" rel="noopener" class="work-link">Donate →</a>
+          <a href={links.fundraiser.page} target="_blank" rel="noopener" class="work-link">Fundraiser page →</a>
         </div>
       </div>
 

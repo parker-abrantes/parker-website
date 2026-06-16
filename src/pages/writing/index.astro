@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { links } from '../../config/links';
 
 const essays = (await getCollection('writing')).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime()
@@ -20,7 +21,7 @@ const rest = essays.filter(e => !e.data.featured);
         Essays on ambition, labor, engineering, and building a life while still becoming a person.
         My writing is where the technical world and the emotional world are allowed to touch.
       </p>
-      <a href="https://substack.com/@parkerabrantes" target="_blank" rel="noopener" class="substack-link">
+      <a href={links.substack} target="_blank" rel="noopener" class="substack-link">
         Read on Substack →
       </a>
     </header>

@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { links } from '../config/links';
 ---
 
 <Base title="Contact" description="Get in touch with Parker Abrantes.">
@@ -15,22 +16,50 @@ import Base from '../layouts/Base.astro';
     </header>
 
     <div class="contact-links">
-      <a href="mailto:parkerabrantes1@gmail.com" class="contact-item">
+      <a href={`mailto:${links.email}`} class="contact-item">
         <span class="label">Email</span>
-        <span>parkerabrantes1@gmail.com</span>
+        <span>{links.email}</span>
       </a>
-      <a href="https://www.linkedin.com/in/parker-abrantes-6518b1327" target="_blank" rel="noopener" class="contact-item">
+      <a href={links.linkedin} target="_blank" rel="noopener" class="contact-item">
         <span class="label">LinkedIn</span>
         <span>parker-abrantes</span>
       </a>
-      <a href="https://github.com/parker-abrantes" target="_blank" rel="noopener" class="contact-item">
+      <a href={links.github} target="_blank" rel="noopener" class="contact-item">
         <span class="label">GitHub</span>
         <span>parker-abrantes</span>
       </a>
-      <a href="https://substack.com/@parkerabrantes" target="_blank" rel="noopener" class="contact-item">
+      <a href={links.substack} target="_blank" rel="noopener" class="contact-item">
         <span class="label">Substack</span>
         <span>Ground Control</span>
       </a>
+      <a href={links.instagram} target="_blank" rel="noopener" class="contact-item">
+        <span class="label">Instagram</span>
+        <span>@parker.abrantes</span>
+      </a>
+      <a href={links.twitter} target="_blank" rel="noopener" class="contact-item">
+        <span class="label">X / Twitter</span>
+        <span>@parkerabrantes</span>
+      </a>
+      <a href={links.youtube} target="_blank" rel="noopener" class="contact-item">
+        <span class="label">YouTube</span>
+        <span>Parker Abrantes</span>
+      </a>
+    </div>
+
+    <div class="fundraiser-box">
+      <div class="fundraiser-label">
+        <span class="status-badge">Active Fundraiser</span>
+      </div>
+      <h2>Philadelphia Half Marathon</h2>
+      <p>
+        Running the Philadelphia Half Marathon to raise money for the Emily Whitehead Foundation —
+        pediatric cancer research and CAR T-cell therapy. Emily was the first pediatric patient
+        treated with CAR T-cell therapy.
+      </p>
+      <div class="fundraiser-links">
+        <a href={links.fundraiser.donate} target="_blank" rel="noopener" class="btn-donate">Donate →</a>
+        <a href={links.fundraiser.page} target="_blank" rel="noopener" class="btn-page">View fundraiser page</a>
+      </div>
     </div>
 
     <div class="contact-note">
@@ -67,13 +96,14 @@ import Base from '../layouts/Base.astro';
     display: flex;
     flex-direction: column;
     gap: 0;
+    margin-bottom: 3rem;
   }
 
   .contact-item {
     display: flex;
     align-items: baseline;
     gap: 1.5rem;
-    padding: 1.25rem 0;
+    padding: 1.1rem 0;
     border-bottom: 1px solid var(--border);
     text-decoration: none;
     color: var(--text);
@@ -84,18 +114,76 @@ import Base from '../layouts/Base.astro';
   .contact-item:hover .label { color: var(--accent); }
 
   .contact-item .label {
-    min-width: 80px;
+    min-width: 100px;
     color: var(--muted);
     transition: color 0.15s;
   }
 
-  .contact-item span:last-child {
-    font-size: 1rem;
-    color: inherit;
+  .contact-item span:last-child { font-size: 1rem; }
+
+  /* Fundraiser */
+  .fundraiser-box {
+    border: 1px solid var(--accent);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
+  .fundraiser-label { margin-bottom: 0.25rem; }
+
+  .status-badge {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.15rem 0.5rem;
+  }
+
+  .fundraiser-box h2 { font-size: 1.3rem; }
+
+  .fundraiser-box p {
+    font-size: 0.95rem;
+    color: var(--dim);
+    line-height: 1.7;
+  }
+
+  .fundraiser-links {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
+  }
+
+  .btn-donate {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 0.5rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .btn-donate:hover { opacity: 0.85; }
+
+  .btn-page {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--dim);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .btn-page:hover { color: var(--text); opacity: 1; }
+
   .contact-note {
-    margin-top: 3rem;
     padding: 1.5rem;
     border: 1px solid var(--border);
     background: var(--surface);

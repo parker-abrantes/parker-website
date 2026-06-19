@@ -21,6 +21,9 @@ const rest = essays.filter(e => !e.data.featured);
         Essays on ambition, labor, engineering, and building a life while still becoming a person.
         My writing is where the technical world and the emotional world are allowed to touch.
       </p>
+      <blockquote class="writing-pull-quote">
+        "the artist is built in errands"
+      </blockquote>
       <a href={links.substack} target="_blank" rel="noopener" class="substack-link">
         Read on Substack →
       </a>
@@ -101,6 +104,18 @@ const rest = essays.filter(e => !e.data.featured);
     font-size: 1rem;
     line-height: 1.75;
     margin-bottom: 1.5rem;
+  }
+
+  .writing-pull-quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1.5;
+    margin: 1.5rem 0 1.5rem;
+    padding: 0;
+    border: none;
+    opacity: 0.85;
   }
 
   .substack-link {

@@ -12,11 +12,12 @@ import PhotoScatter from '../components/PhotoScatter.astro';
   <section class="hero">
     <div class="hero-inner">
       <p class="label" style="margin-bottom: 1.25rem;">Parker Abrantes</p>
-      <h1>Aerospace engineer.<br /><em>Writer. Builder.</em></h1>
+      <h1>Barista.<br /><em>Rocket scientist.</em><br />Still figuring out the difference.</h1>
       <p class="tagline">
-        I'm interested in the uncomfortable middle between idea and deployment —
-        where models break, funding matters, people get tired, and systems either
-        become real or disappear.
+        Aerospace engineering student at Florida Tech. I build nuclear finance models,
+        study autonomous traffic systems, train for a half marathon, and write essays
+        about what it costs to become a person while still being one.
+        Melbourne, FL — from North Attleboro, MA.
       </p>
       <div class="hero-links">
         <a href="/work">Current Work</a>
@@ -24,6 +25,13 @@ import PhotoScatter from '../components/PhotoScatter.astro';
         <a href="/contact">Contact</a>
       </div>
     </div>
+  </section>
+
+  <!-- Pull quote -->
+  <section class="pull-quote-section">
+    <blockquote class="hero-pull-quote">
+      "comparison is abandoning the only self you will ever be"
+    </blockquote>
   </section>
 
   <!-- Section Cards -->
@@ -58,26 +66,46 @@ import PhotoScatter from '../components/PhotoScatter.astro';
 
   <!-- Currently Working On -->
   <section class="status-strip">
-    <span class="label" style="color: var(--accent); margin-right: 1rem;">Currently working on</span>
+    <span class="label" style="color: var(--accent); margin-right: 1rem;">Currently</span>
     <span class="status-items">
-      SmartSignals research &nbsp;·&nbsp;
-      Nuclear finance model &nbsp;·&nbsp;
-      Ground Control essays &nbsp;·&nbsp;
-      Philadelphia Half Marathon &nbsp;·&nbsp;
-      This website
+      Writing a paper on SMR financing structure &nbsp;·&nbsp;
+      SmartSignals sensor pipeline &nbsp;·&nbsp;
+      Training for the Philadelphia Half Marathon for the Emily Whitehead Foundation &nbsp;·&nbsp;
+      Ground Control essays
     </span>
+  </section>
+
+  <!-- Emily Whitehead section -->
+  <section class="emily-section">
+    <div class="emily-inner">
+      <p class="label" style="color: var(--accent); margin-bottom: 1rem;">Running for a reason</p>
+      <h2>The Emily Whitehead Foundation</h2>
+      <p>
+        Emily Whitehead was the first pediatric patient to receive CAR-T cell therapy.
+        She was not supposed to survive. She is now over a decade in remission.
+        My dad became Executive Director of her foundation after watching Tom Whitehead tell
+        that story and asking one question: <em>"how can I help?"</em> He started as a volunteer.
+      </p>
+      <p>
+        I'm running 13.1 miles in November for the same reason. Not because I feel ready.
+        Because meaningful things rarely begin with certainty — they begin when someone
+        shows up before they feel qualified.
+      </p>
+      <a href="https://fundraisers.hakuapp.com/parker-abrantes" target="_blank" rel="noopener" class="emily-link">
+        Support the fundraiser →
+      </a>
+    </div>
   </section>
 
   <!-- Proof -->
   <section class="proof-section">
     <h2>Selected Work</h2>
     <ul class="proof-list">
-      <li>Built MCAP visualization pipeline for SmartSignals Run_310 traffic validation data.</li>
-      <li>Undergraduate researcher in the Aerospace Systems Lab — ROS, Gazebo, Foxglove, data pipelines.</li>
-      <li>Project Manager, Panther Rocket Lab — 25+ members, ~$10K budget, 30+ design reviews.</li>
-      <li>NAR Level 1 high-power rocketry certification — J-class motor, ~2,000 ft apogee. Rocket named Susan.</li>
-      <li>Built a defense contract finance tracker using FastAPI, SQLite, React, and Recharts.</li>
-      <li>Independent nuclear project finance model — IDC, DSCR, LCOE, equity IRR across Vogtle, Crane, and NuScale.</li>
+      <li>Built MCAP visualization pipeline for SmartSignals Run_310 traffic validation data — pairwise VRU distance analysis next.</li>
+      <li>Project Manager, Panther Rocket Lab — 25+ members, ~$10K budget, 30+ design reviews. NAR Level 1 certified. Rocket named Susan.</li>
+      <li>Nuclear project finance model — LCOE, DSCR, IRR across NuScale, Crane/TMI, Oklo, Vogtle. 24 passing unit tests.</li>
+      <li>Biomedical simulator (FlowState) — physics-accurate bladder emptying model. No backend. Runs in the browser.</li>
+      <li>Opportunity Radar — zero-dependency career dashboard connecting opportunity scoring to live application tracker.</li>
       <li>Running the Philadelphia Half Marathon to raise money for the Emily Whitehead Foundation.</li>
     </ul>
   </section>
@@ -101,14 +129,18 @@ import PhotoScatter from '../components/PhotoScatter.astro';
     width: 100%;
   }
 
-  .hero h1 { margin-bottom: 1.75rem; }
+  .hero h1 {
+    margin-bottom: 1.75rem;
+    line-height: 1.15;
+  }
+
   .hero h1 em { font-style: italic; color: var(--accent); }
 
   .tagline {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--dim);
-    max-width: 60ch;
-    line-height: 1.85;
+    max-width: 58ch;
+    line-height: 1.9;
     margin-bottom: 2.5rem;
   }
 
@@ -134,8 +166,27 @@ import PhotoScatter from '../components/PhotoScatter.astro';
     opacity: 1;
   }
 
+  /* Pull quote between hero and cards */
+  .pull-quote-section {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 5rem 2rem 2rem;
+  }
+
+  .hero-pull-quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    border: none;
+    opacity: 0.85;
+  }
+
   .cards-section {
-    padding: 5rem 2rem;
+    padding: 3rem 2rem 5rem;
     max-width: 1100px;
     margin: 0 auto;
   }
@@ -193,6 +244,47 @@ import PhotoScatter from '../components/PhotoScatter.astro';
     color: var(--dim);
     letter-spacing: 0.03em;
   }
+
+  /* Emily section */
+  .emily-section {
+    padding: 5rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .emily-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .emily-inner h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .emily-inner p {
+    font-size: 1.05rem;
+    color: var(--dim);
+    line-height: 1.9;
+    margin-bottom: 1.25rem;
+  }
+
+  .emily-inner p em {
+    color: var(--text);
+    font-style: italic;
+  }
+
+  .emily-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.15s;
+  }
+
+  .emily-link:hover { opacity: 0.7; }
 
   .proof-section {
     max-width: 780px;
